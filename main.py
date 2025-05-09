@@ -9,6 +9,12 @@ app = FastAPI()
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 parser = WebhookParser(os.getenv("LINE_CHANNEL_SECRET"))
 
+
+@app.get("/")
+def read_root():
+    return {"status": "ok"}
+
+
 @app.post("/webhook")
 async def webhook(request: Request, x_line_signature: str = Header(None)):
     body = await request.body()
