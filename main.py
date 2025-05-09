@@ -31,12 +31,6 @@ try:
         # 根據你的需求，這裡可能需要更強硬的錯誤處理，例如直接讓應用程式啟動失敗
         line_bot_api = None
         parser = None
-
-    if OPENAI_KEY:
-        openai.api_key = OPENAI_KEY
-        print("OpenAI API key set.")
-    else:
-        print("ERROR: OpenAI API key not set. GPT features will fail.")
 except Exception as e:
     print(f"CRITICAL ERROR during SDK initialization: {e}")
     # 這裡拋出異常可能會讓部署直接失敗，更容易發現問題
